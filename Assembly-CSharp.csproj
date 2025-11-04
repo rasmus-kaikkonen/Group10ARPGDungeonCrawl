@@ -48,7 +48,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Main_Menu\TabButton.cs" />
+    <Compile Include="Assets\Scripts\Main_Menu\TabGroup.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\Main_Menu\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\Main_Menu\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>

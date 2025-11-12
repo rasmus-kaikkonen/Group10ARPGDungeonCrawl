@@ -17,4 +17,9 @@ public class MainMenu : MonoBehaviour
         mainMenu.enabled = false;
         optionsMenu.enabled = true;
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

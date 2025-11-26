@@ -54,7 +54,6 @@
     <Compile Include="Assets\Scripts\Main_Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UITabSystem\TabGroup.cs" />
     <Compile Include="Assets\Input\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Player\TestControl.cs" />
     <Compile Include="Assets\Scripts\Player\CamControl.cs" />
   </ItemGroup>
   <ItemGroup>

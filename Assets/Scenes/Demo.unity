@@ -9360,7 +9360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FreeCam
   movementSpeed: 5
-  fastMovementSpeed: 100
   freeLookSensitivity: 3
 --- !u!1 &281610988
 GameObject:

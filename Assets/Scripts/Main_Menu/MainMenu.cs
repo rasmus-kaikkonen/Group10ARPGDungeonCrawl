@@ -7,9 +7,10 @@ public class MainMenu : MonoBehaviour
 {
     public Canvas mainMenu;
     public Canvas optionsMenu;
+    
     public void LoadTestScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void GoToOptions()

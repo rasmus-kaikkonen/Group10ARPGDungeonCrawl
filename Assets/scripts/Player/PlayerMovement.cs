@@ -66,7 +66,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
        
-    }    private IEnumerator Dash()
+    }    
+    private IEnumerator Dash()
     {
         
         canDash = false;

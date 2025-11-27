@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movement;
 
     private Vector2 _dash;
+    private Vector2 _dash2;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -65,9 +66,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
        
-    }
+    }    
     private IEnumerator Dash()
     {
+        
         canDash = false;
         isDashing = true;
         _dash.Set(InputManager.Movement.x , InputManager.Movement.y);

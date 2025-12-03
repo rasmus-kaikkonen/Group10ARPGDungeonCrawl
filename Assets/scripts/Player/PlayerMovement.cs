@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _dashCooldown = 1f;
     bool isDashing = false;
     bool canDash = true;
+    public bool canMove = true;
 
     
 
@@ -37,8 +38,21 @@ public class PlayerMovement : MonoBehaviour
     }
 
     
+
     void Update()
     {
+        if(!canMove || PauseMenu.IsPaused)
+        {
+           if(_rb.linearVelocity != Vector2.zero)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _animator.SetFloat(_horizontal, 0);
+                _animator.SetFloat(_vertical, 0);
+                return; 
+            } 
+            
+        }
+        
         if(isDashing)
         {
             return;
@@ -57,16 +71,20 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetFloat(_lastHorizontal, _movement.x);
             _animator.SetFloat(_lastVertical, _movement.y);
+            
+            
         }
 
-        if(Keyboard.current[Key.Space].isPressed && canDash)
+        if(Keyboard.current[Key.Space].wasPressedThisFrame && canDash)
         {
             
             StartCoroutine(Dash());
         }
 
        
-    }    
+    }
+
+    
     private IEnumerator Dash()
     {
         
@@ -81,5 +99,7 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
         
     }
+
+    
     
 }

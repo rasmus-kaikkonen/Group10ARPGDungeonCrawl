@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenu;
     public static bool IsPaused {get; private set; }
+    private static float _PauseDuration = 2f;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +19,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    
     public void PauseGame()
     {
         pauseMenu.enabled = true;
@@ -30,10 +34,29 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = IsPaused ? 0f : 1f;
         
     }
+
+   
+     public static IEnumerator PauseGame2()
+    {
+        
+        IsPaused = !IsPaused;
+        Time.timeScale = IsPaused ? 0f : 1f;
+        yield return new WaitForSeconds(_PauseDuration);
+        
+        
+    }
+    public static void ContinueGame2()
+    {
+        
+        IsPaused = !IsPaused;
+        Time.timeScale = IsPaused ? 0f : 1f;
+    }
+
     public void ExitToMenu()
     {
         IsPaused = !IsPaused;
         Time.timeScale = IsPaused ? 0f : 1f;
+        
         SceneManager.LoadScene(0);
     }
 }

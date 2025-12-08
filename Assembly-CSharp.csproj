@@ -48,20 +48,26 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Player\MainStats.cs" />
-    <Compile Include="Assets\Scripts\Player\LevelUpHandler.cs" />
+    <Compile Include="Assets\Scripts\User Interface\StatusBar.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
     <Compile Include="Assets\Scripts\Player\Map.cs" />
     <Compile Include="Assets\Scripts\UITabSystem\TabButton.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\DamageType.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\SaveData.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\StatusEffect.cs" />
     <Compile Include="Assets\Scripts\Player\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseOptions.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Debuff.cs" />
     <Compile Include="Assets\Scripts\Main_Menu\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\Main_Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UITabSystem\TabGroup.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\SaveController.cs" />
     <Compile Include="Assets\Input\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Buff.cs" />
+    <Compile Include="Assets\Scripts\Player\LevelUpManager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\Player\CamControl.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,13 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfff67abf3bb8314791e7cec52c4d79e, type: 3}
-  m_Name: Shortsword
+  m_Name: ShortSword
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  name: New Item
-  type: 0
+  name: Short Sword
+  type: 1
   equipType: 0
-  strScaling: 0
-  dexScaling: 0
-  spScaling: 0
-  lckScaling: 0
-  damage: 0
+  strScaling: 3
+  dexScaling: 4
+  spScaling: 5
+  lckScaling: 5
+  physicalBaseDamage: 50
+  magicBaseDamage: 0
+  fireBaseDamage: 0
+  darkBaseDamage: 0
+  lightBaseDamage: 0
+  physicalAddDamage: 0
+  magicAddDamage: 0
+  fireAddDamage: 0
+  darkAddDamage: 0
+  lightAddDamage: 0

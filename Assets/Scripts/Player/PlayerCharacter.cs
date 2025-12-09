@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : MonoBehaviour, IDamageable
 {
     #region Main Stats
     [field: Header("Main Stats")]
@@ -12,7 +12,7 @@ public class PlayerCharacter : MonoBehaviour
     [field: SerializeField] public int Strength { get; set; } = 5;
     [field: SerializeField] public int Dexterity { get; set; } = 5;
     [field: SerializeField] public int Spellpower { get; set; } = 5;
-    [field: SerializeField] public int Luck { get; private set; } = 5;
+    [field: SerializeField] public int Luck { get; set; } = 5;
     #endregion
     #region HP And Stamina
     [field: Header("HP And Stamina")]
@@ -27,6 +27,27 @@ public class PlayerCharacter : MonoBehaviour
     [field: Header("Status Effects And Buffs/Debuffs")]
     [field: SerializeField] public List<StatusEffect> StatusEffects { get; set; }
     [field: SerializeField] public List<StatusEffect> BuffsDebuffs { get; set; }
+    #endregion
+    #region Damage
+    [field: Header("Damage")]
+    public int physicalDamage = 0;
+    public int magicDamage = 0;
+    public int fireDamage = 0;
+    public int darkDamage = 0;
+    public int lightDamage = 0;
+    #endregion
+    #region Resistances
+    [field: Header("Resistances")]
+    public int physicalBaseResist = 0;
+    public int magicBaseResist = 0;
+    public int fireBaseResist = 0;
+    public int darkBaseResist = 0;
+    public int lightBaseResist = 0;
+    public int physicalResist = 0;
+    public int magicResist = 0;
+    public int fireResist = 0;
+    public int darkResist = 0;
+    public int lightResist = 0;
     #endregion
     #region Management
     [field: Header("Management")]
@@ -62,7 +83,32 @@ public class PlayerCharacter : MonoBehaviour
         
     }
 
-    void HandleDamage()
+    public void TakeDamage(DamageStruct damage)
+    {
+        float physicalDamage = damage.physicalDamage * (physicalResist / 100);
+        float magicDamage = damage.magicDamage * (magicResist / 100);
+        float fireDamage = damage.fireDamage * (fireResist / 100);
+        float darkDamage = damage.darkDamage * (darkResist / 100);
+        float lightDamage = damage.lightDamage * (lightResist / 100);
+
+        float totalDamage = physicalDamage + magicDamage + fireDamage + darkDamage + lightDamage;
+
+        HitPoints -= (int)Math.Floor(totalDamage);
+    }
+
+    public DamageStruct HandleDamage()
+    {
+        DamageStruct damage;
+        damage.physicalDamage = physicalDamage;
+        damage.magicDamage = magicDamage;
+        damage.fireDamage = fireDamage;
+        damage.lightDamage = lightDamage;
+        damage.darkDamage = darkDamage;
+
+        return damage;
+    }
+
+    public void Attack()
     {
         
     }

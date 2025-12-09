@@ -49,18 +49,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\User Interface\StatusBar.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\DamageStruct.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStatsManager.cs" />
+    <Compile Include="Assets\Scripts\User Interface\InventoryMenu.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Armor.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
     <Compile Include="Assets\Scripts\User Interface\BuffsDebuffsDisplay.cs" />
     <Compile Include="Assets\Scripts\Player\Map.cs" />
     <Compile Include="Assets\Scripts\UITabSystem\TabButton.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\DamageType.cs" />
+    <Compile Include="Assets\Scripts\Player\StatusEffectManager.cs" />
+    <Compile Include="Assets\Scripts\User Interface\StatusEffectsDisplay.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\SaveData.cs" />
     <Compile Include="Assets\Scripts\Gameplay\StatusEffect.cs" />
     <Compile Include="Assets\Scripts\Player\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Equipment.cs" />
+    <Compile Include="Assets\Scripts\User Interface\StaticItemsController.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseOptions.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Main_Menu\OptionsMenu.cs" />
@@ -69,9 +75,11 @@
     <Compile Include="Assets\Scripts\Player\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\SaveController.cs" />
     <Compile Include="Assets\Input\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Buff.cs" />
     <Compile Include="Assets\Scripts\Player\LevelUpManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\Player\CamControl.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

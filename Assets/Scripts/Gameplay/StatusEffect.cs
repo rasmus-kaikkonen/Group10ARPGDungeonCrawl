@@ -14,4 +14,6 @@ public class StatusEffect : ScriptableObject
     public StatusEffectType type;
     public Sprite icon;
     public float duration;
+
+    public virtual void ProcessEffect() {}
 }

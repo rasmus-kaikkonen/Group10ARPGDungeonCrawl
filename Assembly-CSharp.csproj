@@ -61,24 +61,29 @@
     <Analyzer Include="E:\Unity\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Enemy\EnemyChase.cs" />
+    <Compile Include="Assets\Scripts\Enemy\IDamageable.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BrownRat.cs" />
     <Compile Include="Assets\Free assets\PixelArtStudio\Scripts\AnimationEventsHandler.cs" />
-    <Compile Include="Assets\Scripts\Enemy\WayPointMover.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BlueWorm.cs" />
+    <Compile Include="Assets\Scripts\Enemy\BlackRat.cs" />
     <Compile Include="Assets\Scripts\Player\Map.cs" />
     <Compile Include="Assets\Scripts\UITabSystem\TabButton.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\SaveData.cs" />
     <Compile Include="Assets\Scripts\Player\ScreenFader.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseOptions.cs" />
+    <Compile Include="Assets\Scripts\Enemy\WhiteRat.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Enemy\GreenWorm.cs" />
     <Compile Include="Assets\Scripts\Main_Menu\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\Main_Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UITabSystem\TabGroup.cs" />
     <Compile Include="Assets\Free assets\PixelArtStudio\Scripts\DemoPlayer.cs" />
     <Compile Include="Assets\Scripts\PauseMenu\SaveController.cs" />
     <Compile Include="Assets\Input\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy\GreenRat.cs" />
     <Compile Include="Assets\Scripts\Player\CamControl.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

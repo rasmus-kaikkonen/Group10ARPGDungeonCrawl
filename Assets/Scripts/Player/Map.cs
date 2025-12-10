@@ -35,13 +35,13 @@ public class Map : MonoBehaviour
     {
         PauseMenu.PauseGame2();
         await ScreenFader.instance.FadeOut();
-
+       
         confiner.BoundingShape2D = mapBoundry;
         UpdatePlayerPosition(player);
-        
+         
 
         await ScreenFader.instance.FadeIn();
-        
+       
 
 
     }

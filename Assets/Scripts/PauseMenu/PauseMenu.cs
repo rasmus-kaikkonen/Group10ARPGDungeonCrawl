@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenu;
     public static bool IsPaused {get; private set; }
-    private static float _PauseDuration = 2f;
+    private static float _PauseDuration = 1f;
 
     // Update is called once per frame
     void Update()
@@ -42,14 +42,17 @@ public class PauseMenu : MonoBehaviour
         IsPaused = !IsPaused;
         Time.timeScale = IsPaused ? 0f : 1f;
         yield return new WaitForSeconds(_PauseDuration);
-        
-        
+       
+
+
+
     }
-    public static void ContinueGame2()
+    public static IEnumerator ContinueGame2()
     {
         
         IsPaused = !IsPaused;
         Time.timeScale = IsPaused ? 0f : 1f;
+        yield return new WaitForSeconds(_PauseDuration);
     }
 
     public void ExitToMenu()

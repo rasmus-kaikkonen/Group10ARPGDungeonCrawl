@@ -42,7 +42,6 @@ public class EquipmentManager : MonoBehaviour
 
         currentEquipment[equipSlot] = newItem;
 
-        PlayerStatsManager.instance.UpdatePlayerStatsBasedOnArmor(newItem as Armor, oldItem as Armor);
 
         onEquipmentChangedCallback.Invoke();
     }

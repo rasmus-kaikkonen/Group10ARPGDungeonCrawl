@@ -1,115 +1,106 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(StatusEffectManager))]
 public class PlayerCharacter : MonoBehaviour, IDamageable
 {
-    #region Main Stats
     [field: Header("Main Stats")]
     [field: SerializeField] public int Level {get; set; } = 1;
     [field: SerializeField] public int Vitality { get; set; } = 5;
-    [field: SerializeField] public int Vigour { get; set; } = 5;
     [field: SerializeField] public int Strength { get; set; } = 5;
     [field: SerializeField] public int Dexterity { get; set; } = 5;
     [field: SerializeField] public int Spellpower { get; set; } = 5;
     [field: SerializeField] public int Luck { get; set; } = 5;
-    #endregion
-    #region HP And Stamina
-    [field: Header("HP And Stamina")]
-    [field: SerializeField] public int HitPoints { get; set; }
-    [field: SerializeField] public int Stamina { get; set; }
-    #endregion
-    #region Advancement
-    [field: Header("Advancement")]
+    [Header("HP")]
+    [field: SerializeField] public float MaxHealth { get; set; }
+    [field: SerializeField] public float CurrentHealth { get; set; }
+    [field: Header("Other Stats")]
     [field: SerializeField] public int XPPoints { get; set; }
-    #endregion
-    #region Status Effects And Buffs/Debuffs
-    [field: Header("Status Effects And Buffs/Debuffs")]
-    [field: SerializeField] public List<StatusEffect> StatusEffects { get; set; }
-    [field: SerializeField] public List<StatusEffect> BuffsDebuffs { get; set; }
-    #endregion
-    #region Damage
-    [field: Header("Damage")]
-    public int physicalDamage = 0;
-    public int magicDamage = 0;
-    public int fireDamage = 0;
-    public int darkDamage = 0;
-    public int lightDamage = 0;
-    #endregion
-    #region Resistances
-    [field: Header("Resistances")]
-    public int physicalBaseResist = 0;
-    public int magicBaseResist = 0;
-    public int fireBaseResist = 0;
-    public int darkBaseResist = 0;
-    public int lightBaseResist = 0;
-    public int physicalResist = 0;
-    public int magicResist = 0;
-    public int fireResist = 0;
-    public int darkResist = 0;
-    public int lightResist = 0;
-    #endregion
-    #region Management
+    public float meleeDamage = 10f;
+    public float meleeResistance = 0;
+    public float magicResistance = 0;
     [field: Header("Management")]
     public StatusBar healthBar;
-    public StatusBar staminaBar;
-    #endregion
-    int MaxHitpoints()
+    public Animator animator;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    private StatusEffectManager _statusEffectManager;
+    public StatusEffectClass debugStatus;
+    float MaxHitpoints()
     {
-        int value = 0;
-        value += (int)Math.Ceiling(140 + (2.35 * Level) + (3.35 * Vitality));
-        return value;
-    }
-
-    int MaxStamina()
-    {
-        int value = 0;
-        value += (int)Math.Ceiling(100 + (1.4 * Level) + (2.15 * Vigour));
+        float value = 0;
+        value += 100 + 2 * Level + 5 * Vitality;
         return value;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        HitPoints = MaxHitpoints();
-        Stamina = MaxStamina();
+        _statusEffectManager = GetComponent<StatusEffectManager>();
+        MaxHealth = MaxHitpoints();
+        CurrentHealth = MaxHealth;
         healthBar.SetMaxValue(MaxHitpoints());
-        staminaBar.SetMaxValue(MaxStamina());
+        meleeResistance = (float)Math.Round(0.8f * Level + 0.2f * Luck);
+        magicResistance = (float)Math.Round(0.8f * Level + 0.3f * Luck);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Keyboard.current[Key.F].wasPressedThisFrame)
+        {
+            Attack(meleeDamage);
+        }
+        if(Keyboard.current[Key.K].wasPressedThisFrame)
+        {
+            Damage(10);
+        }
+        if(Keyboard.current[Key.P].wasPressedThisFrame)
+        {
+            _statusEffectManager.ApplyEffect(debugStatus);
+        }
     }
 
-    public void TakeDamage(DamageStruct damage)
+    public void Attack(float damage)
     {
-        float physicalDamage = damage.physicalDamage * (physicalResist / 100);
-        float magicDamage = damage.magicDamage * (magicResist / 100);
-        float fireDamage = damage.fireDamage * (fireResist / 100);
-        float darkDamage = damage.darkDamage * (darkResist / 100);
-        float lightDamage = damage.lightDamage * (lightResist / 100);
+        Debug.Log("Player attacked");
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        damage += (float)Math.Round(Luck * 0.5);
 
-        float totalDamage = physicalDamage + magicDamage + fireDamage + darkDamage + lightDamage;
-
-        HitPoints -= (int)Math.Floor(totalDamage);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<EnemyBase>().Damage(damage);
+        }
     }
 
-    public DamageStruct HandleDamage()
+    void OnDrawGizmosSelected()
     {
-        DamageStruct damage;
-        damage.physicalDamage = physicalDamage;
-        damage.magicDamage = magicDamage;
-        damage.fireDamage = fireDamage;
-        damage.lightDamage = lightDamage;
-        damage.darkDamage = darkDamage;
+        if(attackPoint == null)
+        {
+            return;
+        }
 
-        return damage;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    public void Attack()
+    public void Damage(float damageAmount)
     {
-        
+        damageAmount *= (100 + meleeResistance) / 100;
+        CurrentHealth -= (float)Math.Floor(damageAmount);
+        healthBar.SetValue(CurrentHealth);
+
+        if(CurrentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene(0);
     }
 }

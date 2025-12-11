@@ -2,7 +2,6 @@ using UnityEngine;
 
 public enum ItemType { USABLE, EQUPMENT }
 
-[CreateAssetMenu(fileName = "Item", menuName = "Gameplay/Inventory/Item")]
 public class Item : ScriptableObject
 {
     [Header("Standard Info")]

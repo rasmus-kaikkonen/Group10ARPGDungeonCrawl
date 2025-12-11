@@ -24,12 +24,11 @@ public class EnemyBase : MonoBehaviour, IDamageable
     void Start()
     {
         CurrentHealth = MaxHealth;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -4,11 +4,7 @@ using UnityEngine;
 public class Armor : Equipment
 {
     [Header("Resistances")]
-    public int physicalResist = 0;
-    public int magicResist = 0;
-    public int fireResist = 0;
-    public int darkResist = 0;
-    public int lightResist = 0;
+    public float meleeResistance;
 
     public override void Use()
     {

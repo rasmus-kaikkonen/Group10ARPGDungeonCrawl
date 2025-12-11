@@ -6,7 +6,7 @@ public class SaveController : MonoBehaviour
 {
     private string saveLocation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void  Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath,"saveData.json");
 

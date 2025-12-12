@@ -2,7 +2,6 @@
 - Project name: Group10ARPGDungeonCrawl
 - Unity version: Unity 6000.2.10f1
 - Active scene:
-  - Name: Demo
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController
   - Layers:

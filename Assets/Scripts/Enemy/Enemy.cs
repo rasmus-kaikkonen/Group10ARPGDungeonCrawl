@@ -10,10 +10,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyIdleState IdleState { get; set; }
     public EnemyChaseState ChaseState { get; set; }
     public EnemyAttackState AttackState { get; set; }
+    public EnemyPatrolState PatrolState { get; set; }
     public bool IsAggroed { get; set; }
     public bool IsWithinStrikingDistance { get; set; }
 
     public Rigidbody2D BulletPrefab;
+    public Transform[] patrolPoints;
+    public int currentPoint = 0;
 
     public float RandomMovementRange = 5f;
     public float RandomMovementSpeed = 1f;
@@ -24,6 +27,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         IdleState = new(this, StateMachine);
         ChaseState = new(this, StateMachine);
         AttackState = new(this, StateMachine);
+        PatrolState = new(this, StateMachine);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,7 +37,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
         RB = GetComponent<Rigidbody2D>();
 
-        StateMachine.Initialize(IdleState);
+        StateMachine.Initialize(PatrolState);
     }
 
     // Update is called once per frame

@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Player\Inventory.cs" />
     <Compile Include="Assets\Free assets\PixelArtStudio\Scripts\AnimationEventsHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Bullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\TriggerChecks\EnemyAggroCheck.cs" />
     <Compile Include="Assets\Scripts\User Interface\UITabSystem\TabGroup.cs" />
     <Compile Include="Assets\Scripts\Enemy\BlueWorm.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
     <Compile Include="Assets\Scripts\User Interface\BuffsDebuffsDisplay.cs" />
     <Compile Include="Assets\Scripts\Player\Map.cs" />
+    <Compile Include="Assets\Scripts\Enemy\StateMachine\ConcreteStates\EnemyPatrolState.cs" />
     <Compile Include="Assets\Scripts\Gameplay\StatusEffects\Debuff.cs" />
     <Compile Include="Assets\Scripts\Player\IMoveable.cs" />
     <Compile Include="Assets\Scripts\Gameplay\HealthItem.cs" />

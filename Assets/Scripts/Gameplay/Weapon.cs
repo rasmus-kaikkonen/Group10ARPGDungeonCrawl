@@ -15,5 +15,6 @@ public class Weapon : Equipment
         base.Use();
         EquipmentManager.instance.Equip(this);
         Inventory.instance.RemoveItem(this);
+        PlayerStatsManager.instance.UpdatePlayerDamageNumbers(this);
     }
 }

@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BlueWorm : EnemyBase
+public class BlueWorm : Enemy
 {
     private Transform[] patrolPoints;
     public Transform waypointParent;
-    public Transform player;
+    /*public Transform player;
     public float patrolSpeed = 2f;
     public float chaseSpeed = 4f;
     public float detectRange = 5f;
@@ -94,6 +94,6 @@ public class BlueWorm : EnemyBase
     {
         _animator.SetFloat(_LastHorizontal, transform.position.x);
         _animator.SetFloat(_lastVertical, transform.position.y);
-    }
+    }*/
 }
 

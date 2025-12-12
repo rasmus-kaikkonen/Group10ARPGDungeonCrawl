@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI, PLAYER, ENEMY
 - Active game object:
-  - Name: BuffsDebuffsDisplay
+  - Name: Spit
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -5,6 +5,7 @@ public class Armor : Equipment
 {
     [Header("Resistances")]
     public float meleeResistance;
+    public float magicResistance;
 
     public override void Use()
     {

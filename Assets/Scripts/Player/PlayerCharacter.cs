@@ -20,6 +20,7 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
     [field: Header("Other Stats")]
     [field: SerializeField] public int XPPoints { get; set; }
     public float meleeDamage = 10f;
+    public float magicDamage = 10f;
     public float meleeResistance = 0;
     public float magicResistance = 0;
     [field: Header("Management")]
@@ -73,7 +74,7 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyBase>().Damage(damage);
+            enemy.GetComponent<Enemy>().Damage(damage);
         }
     }
 
@@ -89,7 +90,7 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
 
     public void Damage(float damageAmount)
     {
-        damageAmount *= (100 + meleeResistance) / 100;
+        damageAmount *= (100 - meleeResistance) / 100;
         CurrentHealth -= (float)Math.Floor(damageAmount);
         healthBar.SetValue(CurrentHealth);
 

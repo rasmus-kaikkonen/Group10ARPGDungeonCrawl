@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IMoveable
+public interface IMoveable
 {
     Rigidbody2D RB { get; set; }
 

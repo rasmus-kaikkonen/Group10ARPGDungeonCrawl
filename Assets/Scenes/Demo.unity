@@ -820,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc79888aee097d6429da152aee3384d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuffsDebuffsDisplay
+  buffDebuffTemplate: {fileID: 222275957}
 --- !u!114 &94945069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2656,6 +2657,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &222275957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6867179716069102310, guid: f28b385dccd91884983fa5e2e338b38f, type: 3}
+  m_PrefabInstance: {fileID: 9128963488775123570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226504876
 GameObject:
   m_ObjectHideFlags: 0
@@ -6989,6 +6995,7 @@ GameObject:
   - component: {fileID: 832857806}
   - component: {fileID: 832857807}
   - component: {fileID: 832857808}
+  - component: {fileID: 832857809}
   m_Layer: 6
   m_Name: PLAYER
   m_TagString: Player
@@ -7228,7 +7235,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  debugStatus: {fileID: 11400000, guid: 4399c3e912a64da4fba6203435531ea5, type: 2}
+  debugStatus: {fileID: 11400000, guid: a7317f3773a8b1f43beada27f628e175, type: 2}
+  debugBuff: {fileID: 11400000, guid: 19ba31b77a1aeed4fb5902eb7ff92e3e, type: 2}
+  debugDebuff: {fileID: 11400000, guid: dcd1f091b36b39c4d85720a6255004a1, type: 2}
 --- !u!114 &832857808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7241,6 +7250,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0663947db9fa24181037cbfad5195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  currentEffects: []
+  interval: 1
+--- !u!114 &832857809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832857798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d873f610674aaa4eb6f9282c618f5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuffDebuffManager
   currentEffects: []
   interval: 1
 --- !u!1 &866543876
@@ -173890,7 +173913,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1667382884
 GameObject:
   m_ObjectHideFlags: 0
@@ -187639,7 +187662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10379291, y: 3303675.2}
+  m_AnchoredPosition: {x: -10660696, y: 3398196.5}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8231223038916249713

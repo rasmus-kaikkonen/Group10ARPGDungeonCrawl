@@ -15,16 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     
-
     [Header("Dash Settings")]
-    [SerializeField] private float _dashSpeed = 10f;
+    [SerializeField] private float _dashSpeed = 5f;
     [SerializeField] private float _dashDuration = 1f;
     [SerializeField] private float _dashCooldown = 1f;
     bool isDashing = false;
     bool canDash = true;
-
-
-    
 
     private const string _horizontal = "Horizontal";
     private const string _vertical = "Vertical";
@@ -36,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
-
-    
 
     void Update()
     {
@@ -60,11 +54,9 @@ public class PlayerMovement : MonoBehaviour
         
         _rb.linearVelocity = _movement * _movespeed;
        
-
         _animator.SetFloat(_horizontal, _movement.x);
         _animator.SetFloat(_vertical, _movement.y);
         
-
         if (_movement != Vector2.zero)
         {
             _animator.SetFloat(_lastHorizontal, _movement.x);
@@ -78,11 +70,8 @@ public class PlayerMovement : MonoBehaviour
             
             StartCoroutine(Dash());
         }
-
-       
     }
 
-    
     private IEnumerator Dash()
     {
         

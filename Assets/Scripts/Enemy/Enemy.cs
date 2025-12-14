@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
@@ -53,7 +54,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     public void Damage(float damageAmount)
     {
-        CurrentHealth -= damageAmount;
+        CurrentHealth -= (float)Math.Floor(damageAmount);
 
         if(CurrentHealth <= 0f)
         {

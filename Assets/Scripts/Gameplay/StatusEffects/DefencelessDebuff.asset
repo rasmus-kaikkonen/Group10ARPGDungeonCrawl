@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d259e84fa08ba8a46875eab33377d392, type: 3}
-  m_Name: Bleed
-  m_EditorClassIdentifier: Assembly-CSharp::DOTEffect
-  name: Bleed
-  type: 2
-  icon: {fileID: 21300000, guid: cc233a749a284cb4c8973413de07cd58, type: 3}
-  duration: 10
+  m_Script: {fileID: 11500000, guid: d9745bfcaae104045958a405673509f3, type: 3}
+  m_Name: DefencelessDebuff
+  m_EditorClassIdentifier: Assembly-CSharp::DefenceBuff
+  name: Defenceless
+  type: 0
+  icon: {fileID: 21300000, guid: 2c98b0c50ad90a44680dc9c2719f33b4, type: 3}
+  duration: 20
   remainingDuration: 0
   isEffectActive: 0
-  DoTDamage: 2
+  defenceBuff: 75

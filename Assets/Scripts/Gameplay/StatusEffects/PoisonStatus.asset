@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d259e84fa08ba8a46875eab33377d392, type: 3}
-  m_Name: Poison
-  m_EditorClassIdentifier: Assembly-CSharp::DOTEffect
+  m_Script: {fileID: 11500000, guid: 00dbce3dc3cf1c4459f8e8656090d9a8, type: 3}
+  m_Name: PoisonStatus
+  m_EditorClassIdentifier: Assembly-CSharp::PoisonStatus
   name: Poison
   type: 2
   icon: {fileID: 21300000, guid: 459ad4a607f022e4eb0e94da15b6d168, type: 3}
-  duration: 40
+  duration: 30
   remainingDuration: 0
   isEffectActive: 0
-  DoTDamage: 1
+  poisonDamage: 2

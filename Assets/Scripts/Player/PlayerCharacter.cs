@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(StatusEffectManager))]
+[RequireComponent(typeof(BuffDebuffManager))]
 public class PlayerCharacter : MonoBehaviour, IDamageable
 {
     [field: Header("Main Stats")]
@@ -30,7 +31,10 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     private StatusEffectManager _statusEffectManager;
+    private BuffDebuffManager _buffDebuffManager;
     public StatusEffectClass debugStatus;
+    public StatusEffectClass debugBuff;
+    public StatusEffectClass debugDebuff;
     float MaxHitpoints()
     {
         float value = 0;
@@ -42,6 +46,7 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
     void Start()
     {
         _statusEffectManager = GetComponent<StatusEffectManager>();
+        _buffDebuffManager = GetComponent<BuffDebuffManager>();
         MaxHealth = MaxHitpoints();
         CurrentHealth = MaxHealth;
         healthBar.SetMaxValue(MaxHitpoints());
@@ -63,6 +68,14 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
         if(Keyboard.current[Key.P].wasPressedThisFrame)
         {
             _statusEffectManager.ApplyEffect(debugStatus);
+        }
+        if(Keyboard.current[Key.N].wasPressedThisFrame)
+        {
+            _buffDebuffManager.ApplyEffect(debugBuff);
+        }
+        if(Keyboard.current[Key.M].wasPressedThisFrame)
+        {
+            _buffDebuffManager.ApplyEffect(debugDebuff);
         }
     }
 

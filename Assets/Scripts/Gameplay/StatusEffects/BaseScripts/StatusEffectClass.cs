@@ -4,8 +4,7 @@ public enum StatusEffectType
 {
     BUFF,
     DEBUFF,
-    DOT,
-    OTHER
+    STATUSEFFECT
 }
 
 public abstract class StatusEffectClass : ScriptableObject

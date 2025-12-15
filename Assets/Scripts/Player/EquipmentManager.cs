@@ -2,25 +2,13 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
-    public static EquipmentManager instance;
-
-    void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     public Equipment[] currentEquipment;
+    public PlayerStatsManager playerStatsManagerRef;
 
     public delegate void OnEquipmentChangedCallback();
     public OnEquipmentChangedCallback onEquipmentChangedCallback;
+
+    public Inventory inventoryRef;
 
     void Start()
     {
@@ -37,12 +25,12 @@ public class EquipmentManager : MonoBehaviour
         if(currentEquipment[equipSlot] != null)
         {
             oldItem = currentEquipment[equipSlot];
-            Inventory.instance.AddItem(oldItem);
+            inventoryRef.AddItem(oldItem);
         }
 
         currentEquipment[equipSlot] = newItem;
 
-        PlayerStatsManager.instance.UpdatePlayerStatsBasedOnArmor((Armor)newItem, (Armor)oldItem);
+        playerStatsManagerRef.UpdatePlayerStatsBasedOnArmor((Armor)newItem, (Armor)oldItem);
 
         onEquipmentChangedCallback.Invoke();
     }

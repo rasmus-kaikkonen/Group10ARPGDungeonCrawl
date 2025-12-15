@@ -22,8 +22,10 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
     [field: SerializeField] public int XPPoints { get; set; }
     public float meleeDamage = 10f;
     public float magicDamage = 10f;
-    public float meleeResistance = 0;
-    public float magicResistance = 0;
+    public float baseMeleeResistance;
+    public float meleeResistance;
+    public float baseMagicResistance;
+    public float magicResistance;
     [field: Header("Management")]
     public StatusBar healthBar;
     public Animator animator;
@@ -32,10 +34,11 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
     public LayerMask enemyLayers;
     private StatusEffectManager _statusEffectManager;
     private BuffDebuffManager _buffDebuffManager;
+    public PlayerStatsManager playerStatsManager;
     public StatusEffectClass debugStatus;
     public StatusEffectClass debugBuff;
     public StatusEffectClass debugDebuff;
-    float MaxHitpoints()
+    public float MaxHitpoints()
     {
         float value = 0;
         value += 100 + 2 * Level + 5 * Vitality;
@@ -47,11 +50,8 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
     {
         _statusEffectManager = GetComponent<StatusEffectManager>();
         _buffDebuffManager = GetComponent<BuffDebuffManager>();
-        MaxHealth = MaxHitpoints();
-        CurrentHealth = MaxHealth;
+        playerStatsManager.InitPlayerStats();
         healthBar.SetMaxValue(MaxHitpoints());
-        meleeResistance = (float)Math.Round(0.8f * Level + 0.2f * Luck);
-        magicResistance = (float)Math.Round(0.8f * Level + 0.3f * Luck);
     }
 
     // Update is called once per frame
@@ -76,6 +76,10 @@ public class PlayerCharacter : MonoBehaviour, IDamageable
         if(Keyboard.current[Key.M].wasPressedThisFrame)
         {
             _buffDebuffManager.ApplyEffect(debugDebuff);
+        }
+        if(Keyboard.current[Key.L].wasPressedThisFrame)
+        {
+            LevelUpManager.instance.AddXP(30);
         }
     }
 

@@ -15,6 +15,6 @@ public class Item : ScriptableObject
 
     public virtual void Drop()
     {
-        Inventory.instance.RemoveItem(this);
+        GameObject.Find("GameManager").GetComponent<Inventory>().RemoveItem(this);
     }
 }

@@ -6,7 +6,7 @@ public class HealthItem : Item
     public float healAmmount;
     public override void Use()
     {
-        Inventory.instance.RemoveItem(this);
-        PlayerStatsManager.instance.pc.CurrentHealth += healAmmount;
+        GameObject.Find("GameManager").GetComponent<Inventory>().RemoveItem(this);
+        GameObject.Find("GameManager").GetComponent<PlayerStatsManager>().pc.CurrentHealth += healAmmount;
     }
 }

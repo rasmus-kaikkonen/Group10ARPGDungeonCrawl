@@ -10,7 +10,7 @@ public class Armor : Equipment
     public override void Use()
     {
         base.Use();
-        EquipmentManager.instance.Equip(this);
-        Inventory.instance.RemoveItem(this);
+        GameObject.Find("GameManager").GetComponent<EquipmentManager>().Equip(this);
+        GameObject.Find("GameManager").GetComponent<Inventory>().RemoveItem(this);
     }
 }

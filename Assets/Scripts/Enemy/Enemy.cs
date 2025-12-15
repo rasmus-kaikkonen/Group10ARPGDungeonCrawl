@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     public float CurrentHealth { get; set; }
+    [field: SerializeField] public int XPPoints { get; private set;}
     public Rigidbody2D RB { get; set; }
 
     public EnemyStateMachine StateMachine { get; set; }
@@ -34,7 +36,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         CurrentHealth = MaxHealth;
+        XPPoints = 20 + Random.Range(0, 32);
 
         RB = GetComponent<Rigidbody2D>();
 
@@ -64,6 +68,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     public void Die()
     {
+        LevelUpManager.instance.AddXP(XPPoints);
         Destroy(gameObject);
     }
 

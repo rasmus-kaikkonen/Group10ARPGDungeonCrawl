@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI, PLAYER, ENEMY
 - Active game object:
-  - Name: BuffsDebuffsDisplay
+  - Name: ExitButton
   - Tag: Untagged
   - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
